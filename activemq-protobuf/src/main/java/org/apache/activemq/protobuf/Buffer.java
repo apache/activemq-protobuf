@@ -80,9 +80,12 @@ public class Buffer implements Comparable<Buffer> {
     }
 
     final public byte[] toByteArray() {
+        byte[] data = this.data;
+        int length = this.length;
         if (length != data.length) {
             byte t[] = new byte[length];
             System.arraycopy(data, offset, t, 0, length);
+            data = t;
         }
         return data;
     }
